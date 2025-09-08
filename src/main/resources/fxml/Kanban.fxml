@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projeto.gestao.controller.KanbanController">
+   <children>
+      <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Projeto:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbProjeto" prefWidth="300.0" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox fx:id="colunaTodo" spacing="5.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #DEE2E6; -fx-border-radius: 5; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblTodo" text="To Do" style="-fx-font-weight: bold; -fx-background-color: #6C757D; -fx-text-fill: white; -fx-padding: 5;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="0.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="colunaInProgress" spacing="5.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #DEE2E6; -fx-border-radius: 5; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblInProgress" text="In Progress" style="-fx-font-weight: bold; -fx-background-color: #FFC107; -fx-text-fill: black; -fx-padding: 5;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="0.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="colunaTest" spacing="5.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #DEE2E6; -fx-border-radius: 5; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblTest" text="Test" style="-fx-font-weight: bold; -fx-background-color: #17A2B8; -fx-text-fill: white; -fx-padding: 5;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="0.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="colunaDone" spacing="5.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #DEE2E6; -fx-border-radius: 5; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblDone" text="Done" style="-fx-font-weight: bold; -fx-background-color: #28A745; -fx-text-fill: white; -fx-padding: 5;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="0.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

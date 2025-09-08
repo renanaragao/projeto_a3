@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projeto.gestao.controller.PrincipalController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #2E86AB; -fx-padding: 10;">
+         <children>
+            <Label text="Sistema de Gestão de Projetos" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblUsuarioLogado" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox fx:id="menuLateral" spacing="5.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #DEE2E6; -fx-border-width: 0 1 0 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Menu" style="-fx-font-weight: bold; -fx-padding: 10 0 5 0;" />
+            <Button fx:id="btnUsuarios" maxWidth="1.7976931348623157E308" text="Usuários" />
+            <Button fx:id="btnProjetos" maxWidth="1.7976931348623157E308" text="Projetos" />
+            <Button fx:id="btnEquipes" maxWidth="1.7976931348623157E308" text="Equipes" />
+            <Button fx:id="btnTarefas" maxWidth="1.7976931348623157E308" text="Tarefas" />
+            <Button fx:id="btnKanban" maxWidth="1.7976931348623157E308" text="Kanban Board" />
+            <Button fx:id="btnRelatorios" maxWidth="1.7976931348623157E308" text="Relatórios" />
+            <Separator />
+            <Button fx:id="btnSair" maxWidth="1.7976931348623157E308" text="Sair" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="paneConteudo" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

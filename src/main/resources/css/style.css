@@ -1,0 +1,222 @@
+/* Estilos gerais */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+}
+
+/* Botões */
+.button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: white;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #0056B3;
+}
+
+.button:pressed {
+    -fx-background-color: #004085;
+}
+
+/* Botões do menu lateral */
+.menu-lateral .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #495057;
+    -fx-alignment: center-left;
+    -fx-padding: 10 15 10 15;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.menu-lateral .button:hover {
+    -fx-background-color: #E9ECEF;
+}
+
+.menu-lateral .button:pressed {
+    -fx-background-color: #DEE2E6;
+}
+
+/* Campos de texto */
+.text-field, .password-field {
+    -fx-border-color: #CED4DA;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8 12 8 12;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #007BFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 123, 255, 0.25), 4, 0, 0, 0);
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-border-color: #CED4DA;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.combo-box:focused {
+    -fx-border-color: #007BFF;
+}
+
+/* Tabelas */
+.table-view {
+    -fx-border-color: #DEE2E6;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.table-view .column-header {
+    -fx-background-color: #F8F9FA;
+    -fx-border-color: #DEE2E6;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #F8F9FA;
+}
+
+/* Estilos específicos do Kanban */
+.tarefa-kanban {
+    -fx-background-color: white;
+    -fx-border-color: #DEE2E6;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: #495057;
+    -fx-alignment: center-left;
+    -fx-font-size: 11px;
+    -fx-min-height: 50px;
+    -fx-max-height: 80px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+.tarefa-kanban:hover {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 4, 0, 0, 2);
+    -fx-background-color: #F8F9FA;
+}
+
+/* Prioridades das tarefas */
+.prioridade-baixa {
+    -fx-border-color: #28A745;
+    -fx-border-width: 0 0 0 4;
+}
+
+.prioridade-media {
+    -fx-border-color: #FFC107;
+    -fx-border-width: 0 0 0 4;
+}
+
+.prioridade-alta {
+    -fx-border-color: #FD7E14;
+    -fx-border-width: 0 0 0 4;
+}
+
+.prioridade-critica {
+    -fx-border-color: #DC3545;
+    -fx-border-width: 0 0 0 4;
+}
+
+/* Colunas do Kanban */
+.kanban-coluna {
+    -fx-min-width: 250px;
+    -fx-max-width: 300px;
+    -fx-min-height: 400px;
+}
+
+/* Labels de cabeçalho das colunas */
+.kanban-header {
+    -fx-font-weight: bold;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: white;
+    -fx-border-radius: 4 4 0 0;
+    -fx-background-radius: 4 4 0 0;
+}
+
+/* Alertas e mensagens */
+.alert .header-panel {
+    -fx-background-color: #F8F9FA;
+}
+
+.alert .content-text {
+    -fx-font-size: 12px;
+}
+
+/* Formulários */
+.form-container {
+    -fx-spacing: 15;
+    -fx-padding: 20;
+}
+
+.form-field {
+    -fx-spacing: 5;
+}
+
+.form-field .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+/* Status indicators */
+.status-ativo {
+    -fx-text-fill: #28A745;
+    -fx-font-weight: bold;
+}
+
+.status-inativo {
+    -fx-text-fill: #DC3545;
+    -fx-font-weight: bold;
+}
+
+.status-pendente {
+    -fx-text-fill: #FFC107;
+    -fx-font-weight: bold;
+}
+
+.status-concluido {
+    -fx-text-fill: #28A745;
+    -fx-font-weight: bold;
+}
+
+/* Toolbar */
+.toolbar {
+    -fx-background-color: #F8F9FA;
+    -fx-border-color: #DEE2E6;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+
+/* Cards */
+.card {
+    -fx-background-color: white;
+    -fx-border-color: #DEE2E6;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+/* Progress bars */
+.progress-bar {
+    -fx-background-color: #E9ECEF;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #007BFF;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
