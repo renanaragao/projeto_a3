@@ -41,6 +41,10 @@ public class EquipeService {
         logService.registrarExclusao("Equipe", id, "Equipe excluída: " + equipe.getNome());
     }
 
+    public int contarEquipes() {
+        return listarTodas().size();
+    }
+
     private void validarEquipe(Equipe equipe) {
         if (equipe.getNome() == null || equipe.getNome().trim().isEmpty()) {
             throw new RuntimeException("Nome da equipe é obrigatório");

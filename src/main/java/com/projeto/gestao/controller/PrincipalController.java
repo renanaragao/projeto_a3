@@ -4,6 +4,7 @@ import com.projeto.gestao.model.Usuario;
 import com.projeto.gestao.model.PerfilUsuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -56,7 +57,7 @@ public class PrincipalController {
     private void carregarTela(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-            AnchorPane tela = loader.load();
+            Parent tela = loader.load();
 
             Object controller = loader.getController();
             if (controller instanceof BaseController) {

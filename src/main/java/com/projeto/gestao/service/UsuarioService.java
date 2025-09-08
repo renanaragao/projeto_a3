@@ -71,6 +71,10 @@ public class UsuarioService {
         logService.registrarExclusao("Usuario", id, "Usuário excluído: " + usuario.getNomeCompleto());
     }
 
+    public int contarUsuarios() {
+        return listarTodos().size();
+    }
+
     private void validarUsuario(Usuario usuario) {
         if (usuario.getNomeCompleto() == null || usuario.getNomeCompleto().trim().isEmpty()) {
             throw new RuntimeException("Nome completo é obrigatório");

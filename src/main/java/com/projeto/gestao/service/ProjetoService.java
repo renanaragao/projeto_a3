@@ -55,6 +55,10 @@ public class ProjetoService {
         logService.registrarExclusao("Projeto", id, "Projeto cancelado: " + projeto.getNome());
     }
 
+    public int contarProjetos() {
+        return listarTodos().size();
+    }
+
     private void validarProjeto(Projeto projeto) {
         if (projeto.getNome() == null || projeto.getNome().trim().isEmpty()) {
             throw new RuntimeException("Nome do projeto é obrigatório");

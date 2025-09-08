@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projeto.gestao.controller.DashboardController">
+    <VBox spacing="20" alignment="CENTER"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          style="-fx-background-color: #f4f4f4; -fx-padding: 30" >
+        <HBox spacing="30" alignment="CENTER">
+            <AnchorPane prefWidth="200" prefHeight="120"
+                        style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #cccccc, 10, 0, 0, 2);">
+                <VBox alignment="CENTER" spacing="10"
+                      AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                      AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+                    <Label text="Projetos" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+                    <Label fx:id="lblTotalProjetos" text="0" style="-fx-font-size: 32; -fx-text-fill: #2196f3;" />
+                </VBox>
+            </AnchorPane>
+            <AnchorPane prefWidth="200" prefHeight="120"
+                        style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #cccccc, 10, 0, 0, 2);">
+                <VBox alignment="CENTER" spacing="10"
+                      AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                      AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+                    <Label text="Times" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+                    <Label fx:id="lblTotalTimes" text="0" style="-fx-font-size: 32; -fx-text-fill: #4caf50;" />
+                </VBox>
+            </AnchorPane>
+            <AnchorPane prefWidth="200" prefHeight="120"
+                        style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #cccccc, 10, 0, 0, 2);">
+                <VBox alignment="CENTER" spacing="10"
+                      AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                      AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+                    <Label text="Usuários" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+                    <Label fx:id="lblTotalUsuarios" text="0" style="-fx-font-size: 32; -fx-text-fill: #ff9800;" />
+                </VBox>
+            </AnchorPane>
+        </HBox>
+    </VBox>
+</AnchorPane>
+
