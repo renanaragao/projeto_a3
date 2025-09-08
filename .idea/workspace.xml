@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e55ae38d-1ab5-47cd-9ac3-9707a4f777a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/controller/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/service/EquipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/service/EquipeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/service/ProjetoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/service/ProjetoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/service/UsuarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/projeto/gestao/controller/UsuariosController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Usuarios.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +159,7 @@
       <workItem from="1757297096695" duration="161000" />
       <workItem from="1757297283990" duration="286000" />
       <workItem from="1757297586078" duration="6098000" />
-      <workItem from="1757303701053" duration="3807000" />
+      <workItem from="1757303701053" duration="4922000" />
     </task>
     <servers />
   </component>

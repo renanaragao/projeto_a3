@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projeto.gestao.controller.UsuariosController">
+    <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <top>
+            <ToolBar>
+                <Button fx:id="btnNovo" text="Novo" />
+                <Button fx:id="btnSalvar" text="Salvar" />
+                <Button fx:id="btnExcluir" text="Excluir" />
+                <Button fx:id="btnCancelar" text="Cancelar" />
+            </ToolBar>
+        </top>
+        <center>
+            <SplitPane orientation="VERTICAL">
+                <items>
+                    <TableView fx:id="tblUsuarios" prefHeight="200">
+                        <columns>
+                            <TableColumn fx:id="colNome" text="Nome" prefWidth="180" />
+                            <TableColumn fx:id="colLogin" text="Login" prefWidth="120" />
+                            <TableColumn fx:id="colEmail" text="Email" prefWidth="200" />
+                            <TableColumn fx:id="colPerfil" text="Perfil" prefWidth="100" />
+                            <TableColumn fx:id="colAtivo" text="Ativo" prefWidth="80" />
+                        </columns>
+                    </TableView>
+                    <GridPane hgap="10" vgap="10" style="-fx-padding: 15;">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="20" />
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="20" />
+                            <ColumnConstraints percentWidth="30" />
+                        </columnConstraints>
+
+                        <Label text="Nome Completo:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="CPF:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                        <TextField fx:id="txtCpf" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+                        <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <TextField fx:id="txtEmail" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <Label text="Cargo:" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                        <TextField fx:id="txtCargo" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+                        <Label text="Login:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <TextField fx:id="txtLogin" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                        <Label text="Senha:" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                        <PasswordField fx:id="txtSenha" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+
+                        <Label text="Perfil:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <ComboBox fx:id="cmbPerfil" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                        <Label text="Ativo:" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+                        <CheckBox fx:id="chkAtivo" GridPane.rowIndex="3" GridPane.columnIndex="3" />
+                    </GridPane>
+                </items>
+            </SplitPane>
+        </center>
+    </BorderPane>
+</AnchorPane>
+
