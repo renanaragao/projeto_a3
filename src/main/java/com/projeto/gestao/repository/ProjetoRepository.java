@@ -34,7 +34,7 @@ public class ProjetoRepository {
 
     public List<Projeto> listarTodos() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Projeto> query = session.createQuery("FROM Projeto ORDER BY dataCriacao DESC", Projeto.class);
+            Query<Projeto> query = session.createQuery("FROM Projeto WHERE excluido = false ORDER BY dataCriacao DESC", Projeto.class);
             return query.list();
         }
     }
@@ -74,13 +74,13 @@ public class ProjetoRepository {
             transaction = session.beginTransaction();
             Projeto projeto = session.get(Projeto.class, id);
             if (projeto != null) {
-                projeto.setStatus(StatusProjeto.CANCELADO);
+                projeto.setExcluido(true);
                 session.update(projeto);
             }
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
-            throw new RuntimeException("Erro ao cancelar projeto", e);
+            throw new RuntimeException("Erro ao excluir projeto", e);
         }
     }
 }

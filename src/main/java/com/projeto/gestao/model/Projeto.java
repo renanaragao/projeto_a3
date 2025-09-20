@@ -39,6 +39,9 @@ public class Projeto {
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
+    @Column(name = "excluido")
+    private Boolean excluido;
+
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
     private Set<Tarefa> tarefas = new HashSet<>();
 
@@ -48,6 +51,7 @@ public class Projeto {
     public Projeto() {
         this.dataCriacao = LocalDateTime.now();
         this.status = StatusProjeto.PLANEJADO;
+        this.excluido = false;
     }
 
     public Long getId() { return id; }
@@ -82,4 +86,7 @@ public class Projeto {
 
     public Set<ProjetoEquipe> getEquipes() { return equipes; }
     public void setEquipes(Set<ProjetoEquipe> equipes) { this.equipes = equipes; }
+
+    public Boolean getExcluido() { return excluido; }
+    public void setExcluido(Boolean excluido) { this.excluido = excluido; }
 }

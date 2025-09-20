@@ -192,6 +192,17 @@ public class ProjetosController extends BaseController {
             mostrarMensagemInfo("Selecione um projeto para excluir.");
             return;
         }
+
+        // Adicionar confirmação antes de excluir
+        Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacao.setTitle("Confirmar Exclusão");
+        confirmacao.setHeaderText("Excluir Projeto");
+        confirmacao.setContentText("Tem certeza que deseja excluir o projeto \"" + projeto.getNome() + "\"?");
+
+        if (confirmacao.showAndWait().get() != ButtonType.OK) {
+            return;
+        }
+
         try {
             projetoRepository.excluir(projeto.getId());
             carregarProjetos();
