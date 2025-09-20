@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projeto.gestao.controller.ProjetosController">
+    <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <top>
+            <ToolBar>
+                <Button fx:id="btnNovo" text="Novo" />
+                <Button fx:id="btnSalvar" text="Salvar" />
+                <Button fx:id="btnExcluir" text="Excluir" />
+                <Button fx:id="btnCancelar" text="Cancelar" />
+            </ToolBar>
+        </top>
+        <center>
+            <SplitPane orientation="VERTICAL">
+                <items>
+                    <TableView fx:id="tblProjetos" prefHeight="200">
+                        <columns>
+                            <TableColumn fx:id="colNome" text="Nome" prefWidth="180" />
+                            <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="200" />
+                            <TableColumn fx:id="colDataInicio" text="Início" prefWidth="100" />
+                            <TableColumn fx:id="colDataTermino" text="Término Prevista" prefWidth="120" />
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="100" />
+                            <TableColumn fx:id="colGerente" text="Gerente" prefWidth="150" />
+                        </columns>
+                    </TableView>
+                    <GridPane hgap="10" vgap="10" style="-fx-padding: 15;">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="20" />
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="20" />
+                            <ColumnConstraints percentWidth="30" />
+                        </columnConstraints>
+                        <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                        <Label text="Descrição:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                        <TextField fx:id="txtDescricao" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                        <Label text="Data de Início:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <DatePicker fx:id="dpDataInicio" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        <Label text="Término Prevista:" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                        <DatePicker fx:id="dpDataTermino" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+                        <Label text="Status:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <ComboBox fx:id="cbStatus" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                        <Label text="Gerente:" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                        <ComboBox fx:id="cbGerente" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+                    </GridPane>
+                </items>
+            </SplitPane>
+        </center>
+    </BorderPane>
+</AnchorPane>
+

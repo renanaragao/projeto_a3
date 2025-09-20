@@ -1,3 +1,4 @@
+com/projeto/gestao/controller/ProjetosController$2.class
 com/projeto/gestao/repository/EquipeRepository.class
 com/projeto/gestao/Main.class
 com/projeto/gestao/util/CriptografiaUtil.class
@@ -11,11 +12,13 @@ com/projeto/gestao/model/PapelEquipe.class
 com/projeto/gestao/model/Usuario.class
 com/projeto/gestao/controller/KanbanController$1.class
 com/projeto/gestao/model/Tarefa.class
+com/projeto/gestao/controller/ProjetosController.class
 com/projeto/gestao/service/UsuarioService.class
 com/projeto/gestao/model/UsuarioEquipe.class
 com/projeto/gestao/repository/UsuarioRepository.class
 com/projeto/gestao/repository/ProjetoRepository.class
 com/projeto/gestao/controller/KanbanController.class
+com/projeto/gestao/controller/ProjetosController$1.class
 com/projeto/gestao/controller/LoginController.class
 com/projeto/gestao/controller/UsuariosController.class
 com/projeto/gestao/controller/DashboardController.class

@@ -27,6 +27,7 @@
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/Equipe.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/service/UsuarioService.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/ProjetoEquipe.java
+/home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/controller/ProjetosController.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/service/LogService.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/PerfilUsuario.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/PapelEquipe.java
