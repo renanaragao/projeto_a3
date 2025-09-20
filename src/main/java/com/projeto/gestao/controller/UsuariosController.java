@@ -48,6 +48,11 @@ public class UsuariosController extends BaseController {
     private Button btnExcluir;
     @FXML
     private Button btnCancelar;
+    @FXML private TextField filtroNome;
+    @FXML private TextField filtroLogin;
+    @FXML private ComboBox<PerfilUsuario> filtroPerfil;
+    @FXML private Button btnFiltrar;
+    @FXML private Button btnLimparFiltro;
 
     private final UsuarioService usuarioService = new UsuarioService();
     private final ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
@@ -69,6 +74,7 @@ public class UsuariosController extends BaseController {
 
         tblUsuarios.setItems(usuarios);
         cmbPerfil.setItems(FXCollections.observableArrayList(PerfilUsuario.values()));
+        filtroPerfil.setItems(FXCollections.observableArrayList(PerfilUsuario.values()));
 
         // Eventos
         tblUsuarios.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> preencherFormulario(newSel));
@@ -76,6 +82,8 @@ public class UsuariosController extends BaseController {
         btnSalvar.setOnAction(e -> salvarUsuario());
         btnExcluir.setOnAction(e -> excluirUsuario());
         btnCancelar.setOnAction(e -> limparFormulario());
+        btnFiltrar.setOnAction(e -> aplicarFiltro());
+        btnLimparFiltro.setOnAction(e -> limparFiltro());
 
         carregarUsuarios();
         novoUsuario();
@@ -207,5 +215,25 @@ public class UsuariosController extends BaseController {
 
     private void mostrarErro(String msg) {
         new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK).showAndWait();
+    }
+
+    private void aplicarFiltro() {
+        String nome = filtroNome.getText() != null ? filtroNome.getText().trim().toLowerCase() : "";
+        String login = filtroLogin.getText() != null ? filtroLogin.getText().trim().toLowerCase() : "";
+        PerfilUsuario perfil = filtroPerfil.getValue();
+        usuarios.setAll(usuarioService.listarTodos().stream().filter(u -> {
+            boolean match = true;
+            if (!nome.isEmpty()) match &= u.getNomeCompleto() != null && u.getNomeCompleto().toLowerCase().contains(nome);
+            if (!login.isEmpty()) match &= u.getLogin() != null && u.getLogin().toLowerCase().contains(login);
+            if (perfil != null) match &= u.getPerfil() == perfil;
+            return match;
+        }).toList());
+    }
+
+    private void limparFiltro() {
+        filtroNome.clear();
+        filtroLogin.clear();
+        filtroPerfil.setValue(null);
+        usuarios.setAll(usuarioService.listarTodos());
     }
 }

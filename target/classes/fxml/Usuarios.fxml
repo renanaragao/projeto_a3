@@ -6,12 +6,32 @@
             fx:controller="com.projeto.gestao.controller.UsuariosController">
     <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <top>
-            <ToolBar>
-                <Button fx:id="btnNovo" text="Novo" />
-                <Button fx:id="btnSalvar" text="Salvar" />
-                <Button fx:id="btnExcluir" text="Excluir" />
-                <Button fx:id="btnCancelar" text="Cancelar" />
-            </ToolBar>
+            <VBox spacing="5">
+                <ToolBar>
+                    <Button fx:id="btnNovo" text="Novo" />
+                    <Button fx:id="btnSalvar" text="Salvar" />
+                    <Button fx:id="btnExcluir" text="Excluir" />
+                    <Button fx:id="btnCancelar" text="Cancelar" />
+                </ToolBar>
+                <GridPane style="-fx-padding: 10;" hgap="10" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="14" />
+                        <ColumnConstraints percentWidth="14" />
+                    </columnConstraints>
+                    <Label text="Filtrar por:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="filtroNome" promptText="Nome" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Login:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <TextField fx:id="filtroLogin" promptText="Login" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                    <Label text="Perfil:" GridPane.rowIndex="0" GridPane.columnIndex="4" />
+                    <ComboBox fx:id="filtroPerfil" promptText="Perfil" GridPane.rowIndex="0" GridPane.columnIndex="5" />
+                    <Button fx:id="btnFiltrar" text="Filtrar" GridPane.rowIndex="1" GridPane.columnIndex="4" maxWidth="Infinity" />
+                    <Button fx:id="btnLimparFiltro" text="Limpar" GridPane.rowIndex="1" GridPane.columnIndex="5" maxWidth="Infinity" />
+                </GridPane>
+            </VBox>
         </top>
         <center>
             <SplitPane orientation="VERTICAL">
@@ -62,4 +82,3 @@
         </center>
     </BorderPane>
 </AnchorPane>
-
