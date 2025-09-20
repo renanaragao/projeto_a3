@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projeto.gestao.controller.EquipesController">
+    <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <top>
+            <VBox spacing="5">
+                <ToolBar>
+                    <Button fx:id="btnNovo" text="Novo" />
+                    <Button fx:id="btnSalvar" text="Salvar" />
+                    <Button fx:id="btnExcluir" text="Excluir" />
+                    <Button fx:id="btnCancelar" text="Cancelar" />
+                </ToolBar>
+                <GridPane style="-fx-padding: 10;" hgap="10" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="18" />
+                        <ColumnConstraints percentWidth="14" />
+                        <ColumnConstraints percentWidth="14" />
+                    </columnConstraints>
+                    <Label text="Filtrar por:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="filtroNome" promptText="Nome" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Status:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <ComboBox fx:id="filtroStatus" promptText="Ativa/Inativa" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                    <Label text="Membro:" GridPane.rowIndex="0" GridPane.columnIndex="4" />
+                    <ComboBox fx:id="filtroMembro" promptText="Membro" GridPane.rowIndex="0" GridPane.columnIndex="5" />
+                    <Button fx:id="btnFiltrar" text="Filtrar" GridPane.rowIndex="1" GridPane.columnIndex="4" maxWidth="Infinity" />
+                    <Button fx:id="btnLimparFiltro" text="Limpar" GridPane.rowIndex="1" GridPane.columnIndex="5" maxWidth="Infinity" />
+                </GridPane>
+            </VBox>
+        </top>
+        <center>
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <TableView fx:id="tblEquipes" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNome" text="Nome" prefWidth="180" />
+                        <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="200" />
+                        <TableColumn fx:id="colAtiva" text="Ativa" prefWidth="80" />
+                        <TableColumn fx:id="colDataCriacao" text="Data Criação" prefWidth="120" />
+                        <TableColumn fx:id="colQtdMembros" text="Membros" prefWidth="80" />
+                    </columns>
+                </TableView>
+                <GridPane hgap="10" vgap="10" style="-fx-padding: 15;">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="20" />
+                        <ColumnConstraints percentWidth="30" />
+                        <ColumnConstraints percentWidth="20" />
+                        <ColumnConstraints percentWidth="30" />
+                    </columnConstraints>
+                    <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Descrição:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <TextField fx:id="txtDescricao" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                    <Label text="Ativa:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <CheckBox fx:id="chkAtiva" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label text="Membros:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <ListView fx:id="lstMembros" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3" prefHeight="100" />
+                </GridPane>
+            </VBox>
+        </center>
+    </BorderPane>
+</AnchorPane>

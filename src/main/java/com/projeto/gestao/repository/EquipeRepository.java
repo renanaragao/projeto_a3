@@ -31,7 +31,7 @@ public class EquipeRepository {
 
     public List<Equipe> listarTodas() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Equipe> query = session.createQuery("FROM Equipe WHERE ativa = true ORDER BY nome", Equipe.class);
+            Query<Equipe> query = session.createQuery("FROM Equipe ORDER BY nome", Equipe.class);
             return query.list();
         }
     }
@@ -49,6 +49,28 @@ public class EquipeRepository {
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             throw new RuntimeException("Erro ao excluir equipe", e);
+        }
+    }
+
+    public int contarMembrosAtivos(Long equipeId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Long> query = session.createQuery(
+                "SELECT COUNT(ue) FROM UsuarioEquipe ue WHERE ue.equipe.id = :equipeId AND ue.ativo = true",
+                Long.class
+            );
+            query.setParameter("equipeId", equipeId);
+            return query.uniqueResult().intValue();
+        }
+    }
+
+    public int contarTodosMembros(Long equipeId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Long> query = session.createQuery(
+                "SELECT COUNT(ue) FROM UsuarioEquipe ue WHERE ue.equipe.id = :equipeId",
+                Long.class
+            );
+            query.setParameter("equipeId", equipeId);
+            return query.uniqueResult().intValue();
         }
     }
 }

@@ -26,8 +26,8 @@ public class PrincipalController {
     @FXML
     private void initialize() {
         btnUsuarios.setOnAction(e -> carregarTela("/fxml/Usuarios.fxml"));
-        btnProjetos.setOnAction(e -> carregarTela("/fxml/Projetos.fxml"));
         btnEquipes.setOnAction(e -> carregarTela("/fxml/Equipes.fxml"));
+        btnProjetos.setOnAction(e -> carregarTela("/fxml/Projetos.fxml"));
         btnTarefas.setOnAction(e -> carregarTela("/fxml/Tarefas.fxml"));
         btnKanban.setOnAction(e -> carregarTela("/fxml/Kanban.fxml"));
         btnRelatorios.setOnAction(e -> carregarTela("/fxml/Relatorios.fxml"));

@@ -3,6 +3,7 @@
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/util/HibernateUtil.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/Main.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/LogAtividade.java
+/home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/controller/EquipesController.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/util/DataInitializer.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/service/TarefaService.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/Projeto.java

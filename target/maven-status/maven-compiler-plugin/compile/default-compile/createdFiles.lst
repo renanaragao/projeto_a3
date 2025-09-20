@@ -24,13 +24,16 @@ com/projeto/gestao/controller/BaseController.class
 com/projeto/gestao/controller/PrincipalController.class
 com/projeto/gestao/controller/ProjetosController$6.class
 com/projeto/gestao/model/Projeto.class
+com/projeto/gestao/controller/EquipesController$1$1.class
 com/projeto/gestao/model/PerfilUsuario.class
+com/projeto/gestao/controller/EquipesController.class
 com/projeto/gestao/Main.class
 com/projeto/gestao/controller/ProjetosController$4.class
 com/projeto/gestao/repository/LogRepository.class
 com/projeto/gestao/model/Equipe.class
 com/projeto/gestao/model/PrioridadeTarefa.class
 com/projeto/gestao/model/PapelEquipe.class
+com/projeto/gestao/controller/EquipesController$1.class
 com/projeto/gestao/model/Usuario.class
 com/projeto/gestao/model/Tarefa.class
 com/projeto/gestao/controller/ProjetosController$1.class
@@ -39,3 +42,4 @@ com/projeto/gestao/controller/ProjetosController$5.class
 com/projeto/gestao/service/ProjetoService.class
 com/projeto/gestao/util/HibernateUtil.class
 com/projeto/gestao/util/DataInitializer.class
+com/projeto/gestao/controller/EquipesController$2.class
