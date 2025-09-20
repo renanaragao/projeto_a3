@@ -68,6 +68,8 @@
                         <ComboBox fx:id="cbStatus" GridPane.rowIndex="2" GridPane.columnIndex="1" />
                         <Label text="Gerente:" GridPane.rowIndex="2" GridPane.columnIndex="2" />
                         <ComboBox fx:id="cbGerente" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+                        <Label text="Equipes:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <ListView fx:id="lstEquipes" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3" prefHeight="100" />
                     </GridPane>
                 </items>
             </SplitPane>

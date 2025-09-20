@@ -28,6 +28,7 @@ public class ProjetosController extends BaseController {
     @FXML private DatePicker dpDataTermino;
     @FXML private ComboBox<StatusProjeto> cbStatus;
     @FXML private ComboBox<Usuario> cbGerente;
+    @FXML private ListView<com.projeto.gestao.model.Equipe> lstEquipes;
     @FXML private Button btnNovo;
     @FXML private Button btnSalvar;
     @FXML private Button btnExcluir;
@@ -43,7 +44,9 @@ public class ProjetosController extends BaseController {
 
     private ProjetoRepository projetoRepository = new ProjetoRepository();
     private UsuarioRepository usuarioRepository = new UsuarioRepository();
+    private com.projeto.gestao.repository.EquipeRepository equipeRepository = new com.projeto.gestao.repository.EquipeRepository();
     private ObservableList<Projeto> projetos = FXCollections.observableArrayList();
+    private ObservableList<com.projeto.gestao.model.Equipe> equipes = FXCollections.observableArrayList();
     private Projeto projetoSelecionado;
 
     @FXML
@@ -51,23 +54,11 @@ public class ProjetosController extends BaseController {
         configurarTabela();
         carregarProjetos();
         carregarGerentes();
+        carregarEquipes();
         cbStatus.setItems(FXCollections.observableArrayList(StatusProjeto.values()));
         filtroStatus.setItems(FXCollections.observableArrayList(StatusProjeto.values()));
         filtroGerente.setItems(cbGerente.getItems());
-        filtroGerente.setButtonCell(new ListCell<>() {
-            @Override
-            protected void updateItem(Usuario item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty || item == null ? null : item.getNomeCompleto());
-            }
-        });
-        filtroGerente.setCellFactory(x -> new ListCell<>() {
-            @Override
-            protected void updateItem(Usuario item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty || item == null ? null : item.getNomeCompleto());
-            }
-        });
+        configurarListViewEquipes();
         limparFormulario();
         configurarAcoes();
         configurarFiltro();
@@ -131,6 +122,26 @@ public class ProjetosController extends BaseController {
         });
     }
 
+    private void carregarEquipes() {
+        try {
+            equipes.setAll(equipeRepository.listarTodas());
+            lstEquipes.setItems(equipes);
+        } catch (Exception e) {
+            mostrarMensagemErro("Erro ao carregar equipes: " + e.getMessage());
+        }
+    }
+
+    private void configurarListViewEquipes() {
+        lstEquipes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        lstEquipes.setCellFactory(listView -> new ListCell<com.projeto.gestao.model.Equipe>() {
+            @Override
+            protected void updateItem(com.projeto.gestao.model.Equipe item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getNome());
+            }
+        });
+    }
+
     private void configurarAcoes() {
         btnNovo.setOnAction(e -> novoProjeto());
         btnSalvar.setOnAction(e -> salvarProjeto());
@@ -163,6 +174,20 @@ public class ProjetosController extends BaseController {
                 }
             }
 
+            // Selecionar as equipes do projeto
+            lstEquipes.getSelectionModel().clearSelection();
+            if (projeto.getEquipes() != null) {
+                for (com.projeto.gestao.model.ProjetoEquipe pe : projeto.getEquipes()) {
+                    if (pe.getAtiva() != null && pe.getAtiva()) {
+                        for (com.projeto.gestao.model.Equipe equipe : equipes) {
+                            if (equipe.getId().equals(pe.getEquipe().getId())) {
+                                lstEquipes.getSelectionModel().select(equipe);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -177,12 +202,33 @@ public class ProjetosController extends BaseController {
             projeto.setStatus(cbStatus.getValue());
             projeto.setGerente(cbGerente.getValue());
             if (projetoSelecionado == null) projeto.setDataCriacao(java.time.LocalDateTime.now());
+
+            // Atualizar equipes do projeto
+            atualizarEquipesProjeto(projeto, lstEquipes.getSelectionModel().getSelectedItems());
+
             projetoRepository.salvar(projeto);
             carregarProjetos();
             limparFormulario();
             mostrarMensagemInfo("Projeto salvo com sucesso!");
         } catch (Exception e) {
             mostrarMensagemErro("Erro ao salvar projeto: " + e.getMessage());
+        }
+    }
+
+    private void atualizarEquipesProjeto(Projeto projeto, List<com.projeto.gestao.model.Equipe> equipesSelecionadas) {
+        // Remove todas as equipes antigas
+        if (projeto.getEquipes() != null) {
+            projeto.getEquipes().clear();
+        }
+
+        // Adiciona as novas equipes selecionadas
+        for (com.projeto.gestao.model.Equipe equipe : equipesSelecionadas) {
+            com.projeto.gestao.model.ProjetoEquipe pe = new com.projeto.gestao.model.ProjetoEquipe();
+            pe.setProjeto(projeto);
+            pe.setEquipe(equipe);
+            pe.setDataAlocacao(java.time.LocalDateTime.now());
+            pe.setAtiva(true);
+            projeto.getEquipes().add(pe);
         }
     }
 
@@ -246,6 +292,7 @@ public class ProjetosController extends BaseController {
         dpDataTermino.setValue(null);
         cbStatus.setValue(null);
         cbGerente.setValue(null);
+        lstEquipes.getSelectionModel().clearSelection();
         projetoSelecionado = null;
     }
 
@@ -268,6 +315,11 @@ public class ProjetosController extends BaseController {
         if (cbGerente.getValue() == null) {
             mostrarMensagemInfo("Selecione o gerente responsável.");
             cbGerente.requestFocus();
+            return false;
+        }
+        if (lstEquipes.getSelectionModel().getSelectedItems().isEmpty()) {
+            mostrarMensagemInfo("Selecione pelo menos uma equipe para o projeto.");
+            lstEquipes.requestFocus();
             return false;
         }
         return true;
