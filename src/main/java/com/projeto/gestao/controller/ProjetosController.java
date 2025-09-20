@@ -33,6 +33,14 @@ public class ProjetosController extends BaseController {
     @FXML private Button btnExcluir;
     @FXML private Button btnCancelar;
 
+    @FXML private TextField filtroNome;
+    @FXML private ComboBox<StatusProjeto> filtroStatus;
+    @FXML private ComboBox<Usuario> filtroGerente;
+    @FXML private DatePicker filtroDataInicioDe;
+    @FXML private DatePicker filtroDataInicioAte;
+    @FXML private Button btnFiltrar;
+    @FXML private Button btnLimparFiltro;
+
     private ProjetoRepository projetoRepository = new ProjetoRepository();
     private UsuarioRepository usuarioRepository = new UsuarioRepository();
     private ObservableList<Projeto> projetos = FXCollections.observableArrayList();
@@ -44,8 +52,25 @@ public class ProjetosController extends BaseController {
         carregarProjetos();
         carregarGerentes();
         cbStatus.setItems(FXCollections.observableArrayList(StatusProjeto.values()));
+        filtroStatus.setItems(FXCollections.observableArrayList(StatusProjeto.values()));
+        filtroGerente.setItems(cbGerente.getItems());
+        filtroGerente.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(Usuario item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getNomeCompleto());
+            }
+        });
+        filtroGerente.setCellFactory(x -> new ListCell<>() {
+            @Override
+            protected void updateItem(Usuario item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? null : item.getNomeCompleto());
+            }
+        });
         limparFormulario();
         configurarAcoes();
+        configurarFiltro();
     }
 
     @Override
@@ -113,6 +138,11 @@ public class ProjetosController extends BaseController {
         btnCancelar.setOnAction(e -> limparFormulario());
     }
 
+    private void configurarFiltro() {
+        btnFiltrar.setOnAction(e -> aplicarFiltro());
+        btnLimparFiltro.setOnAction(e -> limparFiltro());
+    }
+
     private void novoProjeto() {
         tblProjetos.getSelectionModel().clearSelection();
         limparFormulario();
@@ -170,6 +200,32 @@ public class ProjetosController extends BaseController {
         } catch (Exception e) {
             mostrarMensagemErro("Erro ao excluir projeto: " + e.getMessage());
         }
+    }
+
+    private void aplicarFiltro() {
+        String nome = filtroNome.getText() != null ? filtroNome.getText().trim().toLowerCase() : "";
+        StatusProjeto status = filtroStatus.getValue();
+        Usuario gerente = filtroGerente.getValue();
+        LocalDate dataDe = filtroDataInicioDe.getValue();
+        LocalDate dataAte = filtroDataInicioAte.getValue();
+        projetos.setAll(projetoRepository.listarTodos().stream().filter(p -> {
+            boolean match = true;
+            if (!nome.isEmpty()) match &= p.getNome() != null && p.getNome().toLowerCase().contains(nome);
+            if (status != null) match &= p.getStatus() == status;
+            if (gerente != null) match &= p.getGerente() != null && p.getGerente().getId().equals(gerente.getId());
+            if (dataDe != null) match &= p.getDataInicio() != null && !p.getDataInicio().isBefore(dataDe);
+            if (dataAte != null) match &= p.getDataInicio() != null && !p.getDataInicio().isAfter(dataAte);
+            return match;
+        }).toList());
+    }
+
+    private void limparFiltro() {
+        filtroNome.clear();
+        filtroStatus.setValue(null);
+        filtroGerente.setValue(null);
+        filtroDataInicioDe.setValue(null);
+        filtroDataInicioAte.setValue(null);
+        projetos.setAll(projetoRepository.listarTodos());
     }
 
     private void limparFormulario() {

@@ -5,12 +5,36 @@
             fx:controller="com.projeto.gestao.controller.ProjetosController">
     <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <top>
-            <ToolBar>
-                <Button fx:id="btnNovo" text="Novo" />
-                <Button fx:id="btnSalvar" text="Salvar" />
-                <Button fx:id="btnExcluir" text="Excluir" />
-                <Button fx:id="btnCancelar" text="Cancelar" />
-            </ToolBar>
+            <VBox spacing="5">
+                <ToolBar>
+                    <Button fx:id="btnNovo" text="Novo" />
+                    <Button fx:id="btnSalvar" text="Salvar" />
+                    <Button fx:id="btnExcluir" text="Excluir" />
+                    <Button fx:id="btnCancelar" text="Cancelar" />
+                </ToolBar>
+                <GridPane hgap="10" vgap="8" style="-fx-padding: 10;">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="15" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="15" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="10" />
+                        <ColumnConstraints percentWidth="10" />
+                    </columnConstraints>
+                    <Label text="Filtrar por:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="filtroNome" promptText="Nome" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Status:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <ComboBox fx:id="filtroStatus" promptText="Status" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                    <Label text="Gerente:" GridPane.rowIndex="0" GridPane.columnIndex="4" />
+                    <ComboBox fx:id="filtroGerente" promptText="Gerente" GridPane.rowIndex="0" GridPane.columnIndex="5" />
+                    <Label text="Início de:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <DatePicker fx:id="filtroDataInicioDe" promptText="De" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label text="até" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                    <DatePicker fx:id="filtroDataInicioAte" promptText="Até" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+                    <Button fx:id="btnFiltrar" text="Filtrar" GridPane.rowIndex="1" GridPane.columnIndex="4" />
+                    <Button fx:id="btnLimparFiltro" text="Limpar" GridPane.rowIndex="1" GridPane.columnIndex="5" />
+                </GridPane>
+            </VBox>
         </top>
         <center>
             <SplitPane orientation="VERTICAL">
@@ -50,4 +74,3 @@
         </center>
     </BorderPane>
 </AnchorPane>
-

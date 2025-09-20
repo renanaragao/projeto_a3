@@ -22,6 +22,7 @@ com/projeto/gestao/service/RelatorioService.class
 com/projeto/gestao/model/ProjetoEquipe.class
 com/projeto/gestao/controller/BaseController.class
 com/projeto/gestao/controller/PrincipalController.class
+com/projeto/gestao/controller/ProjetosController$6.class
 com/projeto/gestao/model/Projeto.class
 com/projeto/gestao/model/PerfilUsuario.class
 com/projeto/gestao/Main.class
@@ -34,6 +35,7 @@ com/projeto/gestao/model/Usuario.class
 com/projeto/gestao/model/Tarefa.class
 com/projeto/gestao/controller/ProjetosController$1.class
 com/projeto/gestao/model/LogAtividade.class
+com/projeto/gestao/controller/ProjetosController$5.class
 com/projeto/gestao/service/ProjetoService.class
 com/projeto/gestao/util/HibernateUtil.class
 com/projeto/gestao/util/DataInitializer.class
