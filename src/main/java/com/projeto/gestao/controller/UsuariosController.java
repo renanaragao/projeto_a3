@@ -10,26 +10,44 @@ import javafx.scene.control.*;
 
 public class UsuariosController extends BaseController {
 
-    @FXML private TableView<Usuario> tblUsuarios;
-    @FXML private TableColumn<Usuario, String> colNome;
-    @FXML private TableColumn<Usuario, String> colLogin;
-    @FXML private TableColumn<Usuario, String> colEmail;
-    @FXML private TableColumn<Usuario, PerfilUsuario> colPerfil;
-    @FXML private TableColumn<Usuario, Boolean> colAtivo;
+    @FXML
+    private TableView<Usuario> tblUsuarios;
+    @FXML
+    private TableColumn<Usuario, String> colNome;
+    @FXML
+    private TableColumn<Usuario, String> colLogin;
+    @FXML
+    private TableColumn<Usuario, String> colEmail;
+    @FXML
+    private TableColumn<Usuario, PerfilUsuario> colPerfil;
+    @FXML
+    private TableColumn<Usuario, Boolean> colAtivo;
 
-    @FXML private TextField txtNome;
-    @FXML private TextField txtCpf;
-    @FXML private TextField txtEmail;
-    @FXML private TextField txtCargo;
-    @FXML private TextField txtLogin;
-    @FXML private PasswordField txtSenha;
-    @FXML private ComboBox<PerfilUsuario> cmbPerfil;
-    @FXML private CheckBox chkAtivo;
+    @FXML
+    private TextField txtNome;
+    @FXML
+    private TextField txtCpf;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private TextField txtCargo;
+    @FXML
+    private TextField txtLogin;
+    @FXML
+    private PasswordField txtSenha;
+    @FXML
+    private ComboBox<PerfilUsuario> cmbPerfil;
+    @FXML
+    private CheckBox chkAtivo;
 
-    @FXML private Button btnNovo;
-    @FXML private Button btnSalvar;
-    @FXML private Button btnExcluir;
-    @FXML private Button btnCancelar;
+    @FXML
+    private Button btnNovo;
+    @FXML
+    private Button btnSalvar;
+    @FXML
+    private Button btnExcluir;
+    @FXML
+    private Button btnCancelar;
 
     private final UsuarioService usuarioService = new UsuarioService();
     private final ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
@@ -150,7 +168,9 @@ public class UsuariosController extends BaseController {
         return true;
     }
 
-    private boolean vazio(TextField t) { return t.getText() == null || t.getText().trim().isEmpty(); }
+    private boolean vazio(TextField t) {
+        return t.getText() == null || t.getText().trim().isEmpty();
+    }
 
     private void preencherDadosUsuario(Usuario u, boolean novo) {
         u.setNomeCompleto(txtNome.getText().trim());
@@ -174,14 +194,18 @@ public class UsuariosController extends BaseController {
     }
 
     private void limparFormulario() {
-        if (usuarioSelecionado == null) {
-            novoUsuario();
-        } else {
-            preencherFormulario(usuarioSelecionado);
-        }
+        novoUsuario();
     }
 
-    private void mostrarInfo(String msg) { new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK).showAndWait(); }
-    private void mostrarAlerta(String msg) { new Alert(Alert.AlertType.WARNING, msg, ButtonType.OK).showAndWait(); }
-    private void mostrarErro(String msg) { new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK).showAndWait(); }
+    private void mostrarInfo(String msg) {
+        new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK).showAndWait();
+    }
+
+    private void mostrarAlerta(String msg) {
+        new Alert(Alert.AlertType.WARNING, msg, ButtonType.OK).showAndWait();
+    }
+
+    private void mostrarErro(String msg) {
+        new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK).showAndWait();
+    }
 }

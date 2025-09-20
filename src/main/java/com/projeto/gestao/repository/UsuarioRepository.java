@@ -40,7 +40,7 @@ public class UsuarioRepository {
 
     public List<Usuario> listarTodos() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Usuario> query = session.createQuery("FROM Usuario WHERE ativo = true ORDER BY nomeCompleto", Usuario.class);
+            Query<Usuario> query = session.createQuery("FROM Usuario ORDER BY nomeCompleto", Usuario.class);
             return query.list();
         }
     }
