@@ -63,6 +63,22 @@ public class ProjetosController extends BaseController {
             Usuario gerente = cellData.getValue().getGerente();
             return new javafx.beans.property.SimpleStringProperty(gerente != null ? gerente.getNomeCompleto() : "");
         });
+        // Formatação das datas para pt-BR
+        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        colDataInicio.setCellFactory(column -> new TableCell<Projeto, LocalDate>() {
+            @Override
+            protected void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item.format(formatter));
+            }
+        });
+        colDataTermino.setCellFactory(column -> new TableCell<Projeto, LocalDate>() {
+            @Override
+            protected void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item.format(formatter));
+            }
+        });
         tblProjetos.setItems(projetos);
         tblProjetos.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> selecionarProjeto(newSel));
     }
