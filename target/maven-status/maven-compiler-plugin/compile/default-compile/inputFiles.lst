@@ -24,6 +24,7 @@
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/StatusProjeto.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/StatusTarefa.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/Usuario.java
+/home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/controller/TarefasController.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/Tarefa.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/model/Equipe.java
 /home/refaragao/repos/projeto_a3/src/main/java/com/projeto/gestao/service/UsuarioService.java

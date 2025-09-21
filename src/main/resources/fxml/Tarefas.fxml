@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projeto.gestao.controller.TarefasController">
+    <BorderPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <top>
+            <VBox spacing="5">
+                <ToolBar>
+                    <Button fx:id="btnNovo" text="Novo" />
+                    <Button fx:id="btnSalvar" text="Salvar" />
+                    <Button fx:id="btnExcluir" text="Excluir" />
+                    <Button fx:id="btnCancelar" text="Cancelar" />
+                </ToolBar>
+                <!-- Sessão de Filtro -->
+                <GridPane hgap="10" vgap="8" style="-fx-padding: 10;">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="15" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="15" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="10" />
+                        <ColumnConstraints percentWidth="10" />
+                    </columnConstraints>
+                    <Label text="Filtrar por:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="filtroTitulo" promptText="Título" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Projeto:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <ComboBox fx:id="filtroProjeto" promptText="Projeto" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+                    <Label text="Responsável:" GridPane.rowIndex="0" GridPane.columnIndex="4" />
+                    <ComboBox fx:id="filtroResponsavel" promptText="Responsável" GridPane.rowIndex="0" GridPane.columnIndex="5" />
+                    <Label text="Status:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="filtroStatus" promptText="Status" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Button fx:id="btnFiltrar" text="Filtrar" GridPane.rowIndex="1" GridPane.columnIndex="4" maxWidth="Infinity" />
+                    <Button fx:id="btnLimparFiltro" text="Limpar" GridPane.rowIndex="1" GridPane.columnIndex="5" maxWidth="Infinity" />
+                </GridPane>
+            </VBox>
+        </top>
+        <center>
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <!-- Tabela de Tarefas -->
+                <TableView fx:id="tblTarefas" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colTitulo" text="Título" prefWidth="150" />
+                        <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="220" />
+                        <TableColumn fx:id="colProjeto" text="Projeto" prefWidth="140" />
+                        <TableColumn fx:id="colResponsavel" text="Responsável" prefWidth="150" />
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="100" />
+                        <TableColumn fx:id="colDataInicio" text="Início Previsto" prefWidth="110" />
+                        <TableColumn fx:id="colDataFim" text="Fim Previsto" prefWidth="110" />
+                    </columns>
+                </TableView>
+
+                <!-- Formulário de Edição / Cadastro -->
+                <GridPane hgap="10" vgap="10" style="-fx-padding: 15;">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="20" />
+                        <ColumnConstraints percentWidth="30" />
+                        <ColumnConstraints percentWidth="20" />
+                        <ColumnConstraints percentWidth="30" />
+                    </columnConstraints>
+                    <Label text="Título:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="txtTitulo" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Descrição:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <TextField fx:id="txtDescricao" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+                    <Label text="Projeto:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="cbProjeto" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label text="Responsável:" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                    <ComboBox fx:id="cbResponsavel" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+                    <Label text="Status:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="cbStatus" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    <Label text="Início Previsto:" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                    <DatePicker fx:id="dpDataInicio" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+
+                    <Label text="Fim Previsto:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <DatePicker fx:id="dpDataFim" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                </GridPane>
+            </VBox>
+        </center>
+    </BorderPane>
+</AnchorPane>
+
