@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projeto.gestao.controller.RelatoriosController">
+    <VBox spacing="20" alignment="CENTER"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          style="-fx-background-color: #f4f4f4; -fx-padding: 30">
+
+        <Label text="Relatório Geral"
+               style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #333;" />
+
+        <HBox spacing="30" alignment="CENTER">
+            <VBox alignment="CENTER" spacing="10"
+                  style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #ccc, 10, 0, 0, 2);">
+                <Label text="Total de Usuários" style="-fx-font-size: 16;" />
+                <Label fx:id="lblUsuarios" text="0" style="-fx-font-size: 28; -fx-text-fill: #2196f3;" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10"
+                  style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #ccc, 10, 0, 0, 2);">
+                <Label text="Total de Equipes" style="-fx-font-size: 16;" />
+                <Label fx:id="lblEquipes" text="0" style="-fx-font-size: 28; -fx-text-fill: #4caf50;" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10"
+                  style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #ccc, 10, 0, 0, 2);">
+                <Label text="Total de Projetos" style="-fx-font-size: 16;" />
+                <Label fx:id="lblProjetos" text="0" style="-fx-font-size: 28; -fx-text-fill: #ff9800;" />
+            </VBox>
+        </HBox>
+    </VBox>
+</AnchorPane>
