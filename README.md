@@ -4,8 +4,8 @@ Sistema completo de gerenciamento de projetos desenvolvido em Java com JavaFX, H
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Java 17**
-- **JavaFX 17** - Interface gráfica moderna e responsiva
+- **Java 21**
+- **JavaFX 21** - Interface gráfica moderna e responsiva
 - **Hibernate 6.1.7** - ORM para persistência de dados
 - **MySQL 8.0** - Banco de dados relacional
 - **BCrypt** - Criptografia de senhas
